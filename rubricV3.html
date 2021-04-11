@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"  />
+<title>Blog Rubric</title>
+<!--
+ Developed by Chrispin Kabuya
+ Version 3 - 2021
+-->
+<script>
+var criterias=[0,0,0,0,0,0,0,0];
+var criteria1Text=["No postings were made.",
+                    "Postings show no evidence of insight, understanding or reflective thought about the topic.",
+                    "Postings provide minimal insight, understanding and reflective thought about the topic.",
+					"Postings provide minimal insight, understanding and reflective thought about the topic.",
+					"Postings provide minimal insight, understanding and reflective thought about the topic.",
+					"Postings provide minimal insight, understanding and reflective thought about the topic.",
+					"Postings provide moderate insight, understanding and reflective thought about the topic.",
+					"Postings provide moderate insight, understanding and reflective thought about the topic.",
+					"Postings provide moderate insight, understanding and reflective thought about the topic.",
+					"Postings provide moderate insight, understanding and reflective thought about the topic.",
+                    "Postings provide moderate insight, understanding and reflective thought about the topic.",
+					"Postings provide comprehensive insight, understanding, and reflective thought about the topic.",
+					"Postings provide comprehensive insight, understanding, and reflective thought about the topic. ",
+					"Postings provide comprehensive insight, understanding, and reflective thought about the topic."
+					];
+var criteria2Text=["Posting is not related to requirements at all.",
+                   "Postings present no specific viewpoint.",
+                   "Postings present a specific viewpoint.",
+				   "Postings present a specific viewpoint.",
+				   "Postings present a specific viewpoint.",
+                   "Postings present a specific viewpoint that is substantiated.",
+				   "Postings present a specific viewpoint that is substantiated.",
+				   "Postings present a specific viewpoint that is substantiated.",
+				   "Postings present a specific viewpoint that is substantiated.",
+				   "Postings present a specific viewpoint that is substantiated.",
+                   "Postings present a focused and cohesive viewpoint.",
+				   "Postings present a focused and cohesive viewpoint.",
+				   "Postings present a focused and cohesive viewpoint."];
+var criteria3Text=["Postings do not stimulate dialogue and commentary and do not connect with the audience.",
+                   "Postings and reflect minimal effort to connect with the audience",
+				   "Postings and reflect minimal effort to connect with the audience",
+				   "Postings and reflect minimal effort to connect with the audience",
+                   "Postings are generally well written with some attempts made to stimulate dialogue and commentary.",
+				   "Postings are generally well written with some attempts made to stimulate dialogue and commentary.",
+				   "Postings are generally well written with some attempts made to stimulate dialogue and commentary.",
+				   "Postings are generally well written with some attempts made to stimulate dialogue and commentary.",
+				   "Postings are generally well written with some attempts made to stimulate dialogue and commentary.",
+                   "Postings are creatively and fluently written to stimulate dialogue and commentary.",
+				   "Postings are creatively and fluently written to stimulate dialogue and commentary.",
+				   "Postings are creatively and fluently written to stimulate dialogue and commentary."];
+var criteria4Text=["No comments on other students' blogs",
+                   "Less than 3 names provided and no comments included.",
+				   "Less than 3 names provided and/or limited comments made.",
+				   "Less than 3 names provided and/or limited comments made.",
+                   "Less than 3 names provided and/or limited comments made.",
+				   "3 Names provided and comments are relevant and comprehensive.",
+				   "3 Names provided and comments are relevant and comprehensive.",
+				   "3 Names provided and comments are relevant and comprehensive.",
+				   "3 Names provided and comments are relevant and comprehensive.",
+                   "More than 3 names provided, comments are relevant, comprehensive and shows insight adds value to original blog.",
+				   "More than 3 names provided, comments are relevant, comprehensive and shows insight adds value to original blog.",
+				   "More than 3 names provided, comments are relevant, comprehensive and shows insight adds value to original blog."];
+var criteria5Text=["Postings do not reflect the author's personality and word choice does not bring the topic to life.",
+                   "Postings reflect almost no personality and little attempt is made to use effective word choices to bring the topic to life.",
+				   "Postings reflect almost no personality and little attempt is made to use effective word choices to bring the topic to life.",
+				   "Postings reflect almost no personality and little attempt is made to use effective word choices to bring the topic to life.",
+                   "Postings reflect a bit of the author's personality through word choices that attempt to bring the topic to life.",
+				   "Postings reflect a bit of the author's personality through word choices that attempt to bring the topic to life.",
+				   "Postings reflect a bit of the author's personality through word choices that attempt to bring the topic to life.",
+				   "Postings reflect a bit of the author's personality through word choices that attempt to bring the topic to life.",
+				   "Postings reflect a bit of the author's personality through word choices that attempt to bring the topic to life.",
+                   "Postings reflect the author's unique personality through expressive and carefully selected word choices that bring the topic to life.",
+				   "Postings reflect the author's unique personality through expressive and carefully selected word choices that bring the topic to life.",
+				   "Postings reflect the author's unique personality through expressive and carefully selected word choices that bring the topic to life."];
+var criteria6Text=["Does not update blog within the required time frame.",
+                   "Updates blog when reminded.",
+				   "Updates blog when reminded.",
+				   "Updates blog when reminded.",
+                   "Updates blog when required.",
+				   "Updates blog when required.",
+				   "Updates blog when required.",
+				   "Updates blog when required.",
+				   "Updates blog when required.",
+                   "Updates blog as often or more often than required.",
+				   "Updates blog as often or more often than required.",
+				   "Updates blog as often or more often than required."];
+var criteria7Text=["Does not categorize and tag the topic appropriately.",
+                   "The post is not categorized and tagged appropriately.",
+				   "The post is not categorized and tagged appropriately.",
+				   "The post is not categorized and tagged appropriately.",
+                   "Post is categorized and tagged.",
+				   "Post is categorized and tagged.",
+				   "Post is categorized and tagged.",
+				   "Post is categorized and tagged.",
+				   "Post is categorized and tagged.",
+                   "Post is categorized and topics are tagged appropriately.",
+				   "Post is categorized and topics are tagged appropriately.",
+				   "Post is categorized and topics are tagged appropriately."];
+var criteria8Text=["Written responses contain numerous grammatical, spelling or punctuation errors.  The style of writing does not facilitate effective communication.",
+                   "Written responses include some grammatical, spelling or punctuation errors that distract the reader.",
+				   "Written responses include some grammatical, spelling or punctuation errors that distract the reader.",
+				   "Written responses include some grammatical, spelling or punctuation errors that distract the reader.",
+                   "Written responses are largely free of grammatical, spelling or punctuation errors.  The style of writing generally facilitates communication.",
+				   "Written responses are largely free of grammatical, spelling or punctuation errors.  The style of writing generally facilitates communication.",
+				   "Written responses are largely free of grammatical, spelling or punctuation errors.  The style of writing generally facilitates communication.",
+				   "Written responses are largely free of grammatical, spelling or punctuation errors.  The style of writing generally facilitates communication.",
+				   "Written responses are largely free of grammatical, spelling or punctuation errors.  The style of writing generally facilitates communication.",
+                   "Written responses are free of grammatical, spelling or punctuation errors.  The style of writing facilitates communication.",
+				   "Written responses are free of grammatical, spelling or punctuation errors.  The style of writing facilitates communication.",
+				   "Written responses are free of grammatical, spelling or punctuation errors.  The style of writing facilitates communication."];
+var criteria9Text=["No exercise answers included. ",
+                   "Incomplete exercise answers included. ",
+				   "Incomplete exercise answers included. ",
+				   "Incomplete exercise answers included. ",
+                   "Complete exercise answers included. ",
+				   "Complete exercise answers included.  ",
+				   "Complete exercise answers included. ",
+				   "Complete exercise answers included. ",
+				   "Complete exercise answers included. "];
+
+var selectedRubric=["","","","","","","","",""]; // array to hold selected criteria
+var checkSelection=[false,false,false,false,false,false,false,false,false];
+var total=0;
+
+function autoCompute1(){ //computer first criteria selected
+var selectCriteria;
+var mark=0;
+var isCriteriaSelected=false;
+for (var i = 0; i < document.forms[0].criteria1.length; ++i) {
+if (document.forms[0].criteria1[i].checked === true) {
+   isCriteriaSelected=true;
+   selectCriteria=document.forms[0].criteria1[i].value;
+   mark=parseInt(selectCriteria);
+   criterias[0]=mark;//add to u
+   selectedRubric[0]=criteria1Text[i] + "<strong> Marks </strong>" + mark;
+   checkSelection[0]=isCriteriaSelected;
+   compute();//find the total
+  break;
+}
+
+}
+/*if (isCriteriaSelected == false) {
+window.alert("You must select your criteria 1.");
+}*/
+}
+function autoCompute2(){
+var selectCriteria;
+var mark=0;
+var isCriteriaSelected=false;
+for (var i = 0; i < document.forms[0].criteria2.length; ++i) {
+if (document.forms[0].criteria2[i].checked === true) {
+   isCriteriaSelected=true;
+   selectCriteria=document.forms[0].criteria2[i].value;
+   mark=parseInt(selectCriteria);
+   criterias[1]=mark;//add to u
+   selectedRubric[1]=criteria2Text[i] + "<strong> Marks </strong>" + mark;
+   checkSelection[1]=isCriteriaSelected;
+   compute();//find the total
+  break;
+}
+
+}
+/*if (isCriteriaSelected == false) {
+window.alert("You must select your criteria 1.");
+}*/
+}
+function autoCompute3(){
+var selectCriteria;
+var mark=0;
+var isCriteriaSelected=false;
+for (var i = 0; i < document.forms[0].criteria3.length; ++i) {
+if (document.forms[0].criteria3[i].checked === true) {
+   isCriteriaSelected=true;
+   selectCriteria=document.forms[0].criteria3[i].value;
+   mark=parseInt(selectCriteria);
+   criterias[2]=mark;//add to u
+   selectedRubric[2]=criteria3Text[i] + "<strong> Marks </strong>" + mark;
+   checkSelection[2]=isCriteriaSelected;
+   compute();//find the total
+  break;
+}
+
+}
+/*if (isCriteriaSelected == false) {
+window.alert("You must select your criteria 3.");
+}*/
+}
+
+function autoCompute4(){
+var selectCriteria;
+var mark=0;
+var isCriteriaSelected=false;
+for (var i = 0; i < document.forms[0].criteria4.length; ++i) {
+if (document.forms[0].criteria4[i].checked === true) {
+     isCriteriaSelected=true;
+   selectCriteria=document.forms[0].criteria4[i].value;
+   mark=parseInt(selectCriteria);
+   criterias[3]=mark;//add to u
+   selectedRubric[3]=criteria4Text[i] + "<strong> Marks </strong>" + mark;
+   checkSelection[3]=isCriteriaSelected;
+   compute();//find the total
+  break;
+}
+
+}
+/*if (isCriteriaSelected == false) {
+window.alert("You must select your criteria 4.");
+}*/
+}
+function autoCompute5(){
+var selectCriteria;
+var mark=0;
+var isCriteriaSelected=false;
+for (var i = 0; i < document.forms[0].criteria5.length; ++i) {
+if (document.forms[0].criteria5[i].checked === true) {
+     isCriteriaSelected=true;
+   selectCriteria=document.forms[0].criteria5[i].value;
+   mark=parseInt(selectCriteria);
+   criterias[4]=mark;//add to u
+   selectedRubric[4]=criteria5Text[i] + "<strong> Marks </strong>" + mark;
+   checkSelection[4]=isCriteriaSelected;
+   compute();//find the total
+  break;
+}
+
+}
+/*if (isCriteriaSelected == false) {
+window.alert("You must select your criteria 5.");
+}*/
+}
+
+function autoCompute6(){
+var selectCriteria;
+var mark=0;
+var isCriteriaSelected=false;
+for (var i = 0; i < document.forms[0].criteria6.length; ++i) {
+if (document.forms[0].criteria6[i].checked === true) {
+     isCriteriaSelected=true;
+   selectCriteria=document.forms[0].criteria6[i].value;
+   mark=parseInt(selectCriteria);
+   criterias[5]=mark;//add to u
+   selectedRubric[5]=criteria6Text[i] + "<strong> Marks </strong>" + mark;
+   checkSelection[5]=isCriteriaSelected;
+   compute();//find the total
+  break;
+}
+
+}
+/*if (isCriteriaSelected == false) {
+window.alert("You must select your criteria 6.");
+}*/
+}
+
+function autoCompute7(){
+var selectCriteria;
+var mark=0;
+var isCriteriaSelected=false;
+for (var i = 0; i < document.forms[0].criteria7.length; ++i) {
+if (document.forms[0].criteria7[i].checked === true) {
+     isCriteriaSelected=true;
+   selectCriteria=document.forms[0].criteria7[i].value;
+   mark=parseInt(selectCriteria);
+   criterias[6]=mark;//add to u
+   selectedRubric[6]=criteria7Text[i] + "<strong> Marks </strong>" + mark;
+   checkSelection[6]=isCriteriaSelected;
+   compute();//find the total
+  break;
+}
+
+}
+/*if (isCriteriaSelected == false) {
+window.alert("You must select your criteria 7.");
+}*/
+}
+
+function autoCompute8(){
+var selectCriteria;
+var mark=0;
+var isCriteriaSelected=false;
+for (var i = 0; i < document.forms[0].criteria8.length; ++i) {
+if (document.forms[0].criteria8[i].checked === true) {
+     isCriteriaSelected=true;
+   selectCriteria=document.forms[0].criteria8[i].value;
+   mark=parseInt(selectCriteria);
+   criterias[7]=mark;//add to u
+   selectedRubric[7]=criteria8Text[i] + "<strong> Marks </strong>" + mark;
+   checkSelection[7]=isCriteriaSelected;
+   compute();//find the total
+  break;
+}
+
+}
+/*if (isCriteriaSelected == false) {
+window.alert("You must select your criteria 8.");
+}*/
+}
+function autoCompute9(){
+var selectCriteria;
+var mark=0;
+var isCriteriaSelected=false;
+for (var i = 0; i < document.forms[0].criteria9.length; ++i) {
+if (document.forms[0].criteria9[i].checked === true) {
+     isCriteriaSelected=true;
+   selectCriteria=document.forms[0].criteria9[i].value;
+   mark=parseInt(selectCriteria);
+   criterias[8]=mark;//add to u
+   selectedRubric[8]=criteria9Text[i] + "<strong> Marks </strong>" + mark;
+   checkSelection[8]=isCriteriaSelected;
+   compute();//find the total
+  break;
+}
+}
+}
+/*combines the total marks and criteria*/
+function compute(){
+  var sum=0;
+  for(var i=0; i<criterias.length; ++i){
+    sum+=criterias[i];
+  }
+  var text="";
+  for(var j=0;j<selectedRubric.length;++j){
+    text+=selectedRubric[j]+"<br/>";
+  }
+  document.getElementById("copied").innerHTML=text+"<br/><strong> Total: "+sum+"/100</strong>";
+  document.getElementById("totalMarks").innerHTML="<strong> Total: "+sum+"/100</strong>";
+}
+/*validate all radio buttons have been selected*/
+function checkAllSelected(){
+    var isInValid=true;
+   for(var i=0; i<checkSelection.length;i++){
+       if(checkSelection[i]===false){
+           window.alert("You have left out criteria number "+(i+1)+" from your computation. Please select all criteria");
+                isInValid=false;
+                break;
+            }   
+       
+    }
+    return isInValid;
+    }
+/* copy selected text*/
+function copyToClipboard(text) {
+ if(checkAllSelected())
+  window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+  else
+   window.alert("Not all criteria have been selected for Computation");   
+}
+
+</script>
+<style>
+body,html {
+margin:0;
+padding:0;
+color:#000;
+background:#a7a09a;
+}
+
+#wrapper {
+     width: 100%;
+     margin: 0 auto;
+}
+#leftcolumn {
+    float: left;
+    width: 30%;
+    min-height: fit-content;
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    
+}
+
+#rightcolumn {
+    float: right;
+    width: 70%;
+    border: solid white;
+    min-height: fit-content;
+    color:inherit;
+}
+.pure-table {
+    /* Remove spacing between table cells (from Normalize.css) */
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+    font-size: 0.6em;
+    width:98%;
+    
+}
+
+.pure-table caption {
+    color: #000;
+    font: italic 85%/1 arial, sans-serif;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.pure-table td,
+.pure-table th {
+    border-left: 1px solid #cbcbcb;/*  inner column border */
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible; /*to make ths where the title is really long work*/
+    padding: 0.5em 1em; /* cell padding */
+}
+
+/* Consider removing this next declaration block, as it causes problems when
+there's a rowspan on the first cell. Case added to the tests. issue#432 */
+.pure-table td:first-child,
+.pure-table th:first-child {
+    border-left-width: 0;
+}
+
+.pure-table thead {
+    background-color: #e0e0e0;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+/*
+striping:
+   even - #fff (white)
+   odd  - #f2f2f2 (light gray)
+*/
+.pure-table td {
+    background-color: transparent;
+}
+.pure-table-odd td {
+    background-color: #f2f2f2;
+}
+
+/* nth-child selector for modern browsers */
+.pure-table-striped tr:nth-child(2n-1) td {
+    background-color: #f2f2f2;
+}
+
+/* BORDERED TABLES */
+.pure-table-bordered td {
+    border-bottom: 1px solid #cbcbcb;
+}
+.pure-table-bordered tbody > tr:last-child > td {
+    border-bottom-width: 0;
+}
+
+
+/* HORIZONTAL BORDERED TABLES */
+
+.pure-table-horizontal td,
+.pure-table-horizontal th {
+    border-width: 0 0 1px 0;
+    border-bottom: 1px solid #cbcbcb;
+}
+.pure-table-horizontal tbody > tr:last-child > td {
+    border-bottom-width: 0;
+}
+#copied {
+ border: 2px solid #cbcbcb; 
+ font-size:0.8em;
+ font-style:italic ;
+ width:90%;
+ background-color:activecaption;
+}
+</style>
+</head>
+<body>
+<div id="wrapper">
+    <div id="leftcolumn">
+        <h5>Your Selected Criteria</h5>
+        <div id="copied" ondblclick="copyToClipboard(window.document.getElementById('copied').textContent)">Selected</div>
+        <p style="width:90%"><strong>Instructions: </strong><br/> Simply select all the criteria which fit the blog you have read by clicking on the radio button. Double-click the selected text above to select and then paste in the comment section of the student blog.</p>
+    </div>
+    <div id="rightcolumn">
+        <form method="post">
+
+<table class="pure-table pure-table-bordered">
+<caption> <h3>Blog Assignment Rubric Version 3</h3></caption>
+  <tr>
+    <td valign="top"><p align="center"><strong>Criteria</strong></p></td>
+    <td valign="top"><p align="center"><strong>&nbsp;</strong></p></td>
+    <td  valign="top"><p align="center"><strong>&nbsp;</strong></p></td>
+    <td  valign="top"><p align="center"><strong>&nbsp;</strong></p></td>
+    <td  valign="top"><p align="center"><strong>&nbsp;</strong></p></td>
+    <td  valign="top"><p align="center"><strong>&nbsp;</strong></p></td>
+  </tr>
+  <tr>
+    <td rowspan="3" valign="top"><p><strong>Content and Creativity<br />
+              <br />
+      </strong></p></td>
+    <td valign="top" name="text1"><p id="crit1-1">No postings were made<br /></p>
+      <p>
+        <input name="criteria1" type="radio" value="0"  id="criteria11" onclick="autoCompute1()" />
+        <label for="radiobutton"><strong>0 Marks</strong></label></p></td>
+    <td valign="top" name="text1"><p id="crit1-2">Postings show no evidence of insight, understanding or reflective thought about the topic.</p><br />
+       <p>
+        <input name="criteria1" type="radio" value="1"  id="criteria12" onclick="autoCompute1()"/>
+        <label for="radiobutton"><strong>1 Marks</strong></label></p></td>
+    <td valign="top" name="text1"><p id="crit1-3">Postings provide minimal insight, understanding and reflective thought about the topic.</p><br />
+      <p>
+        <input name="criteria1" type="radio" value="2"  id="criteria13" onclick="autoCompute1()" />
+        <label for="radiobutton"><strong>2 Marks</strong></label><br />        
+		<input name="criteria1" type="radio" value="3"  id="criteria13" onclick="autoCompute1()" />
+        <label for="radiobutton"><strong>3 Marks</strong></label><br />
+        <input name="criteria1" type="radio" value="4"  id="criteria13" onclick="autoCompute1()" />
+        <label for="radiobutton"><strong>4 Marks</strong></label></p></td>		
+    <td valign="top" name="text1"><p id="crit1-4">Postings provide moderate insight, understanding and reflective thought about the topic.</p><br />
+      <p>
+        <input name="criteria1" type="radio" value="5"  id="criteria14" onclick="autoCompute1()"/>
+        <label for="radiobutton"><strong>5 Marks</strong></label><br />
+        <input name="criteria1" type="radio" value="6"  id="criteria14" onclick="autoCompute1()"/>
+        <label for="radiobutton"><strong>6 Marks</strong></label><br />	
+	  <input name="criteria1" type="radio" value="7"  id="criteria14" onclick="autoCompute1()"/>
+        <label for="radiobutton"><strong>7 Marks</strong></label><br />
+        <input name="criteria1" type="radio" value="8"  id="criteria14" onclick="autoCompute1()"/>
+        <label for="radiobutton"><strong>8 Marks</strong></label><br />
+        <input name="criteria1" type="radio" value="9"  id="criteria14" onclick="autoCompute1()"/>
+        <label for="radiobutton"><strong>9 Marks</strong></label></p></td>
+    <td valign="top" name="text1"><p id="crit1-5">Postings provide comprehensive insight, understanding, and reflective thought about the topic by<br /></p>
+      <p>
+ 		<input name="criteria1" type="radio" value="10" id="criteria15" onclick="autoCompute1()"/>
+        <label for="radiobutton"><strong>10 Marks</strong></label><br />
+		<input name="criteria1" type="radio" value="11" id="criteria15" onclick="autoCompute1()"/>
+        <label for="radiobutton"><strong>11 Marks</strong></label><br />		
+		<input name="criteria1" type="radio" value="13" id="criteria15" onclick="autoCompute1()"/>
+        <label for="radiobutton"><strong>13 Marks</strong></label></p></td>
+  </tr>
+  <tr class="pure-table-even">
+	
+          <td valign="top" name="text2"><p id="crit2-1">Posting is not related to requirements at all
+      </p>
+	<p>
+         <input name="criteria2" type="radio" value="0" id="criteria21" onclick="autoCompute2()" />
+        <label for="radiobutton"><strong>0 Marks</strong></label></p>
+    </td>
+    <td  valign="top" name="text2">
+      <p id="crit2-2">Postings present no specific viewpoint.<br /></p>
+      <p>
+        <input name="criteria2" type="radio" value="1" id="criteria22" onclick="autoCompute2()"/>
+        <label for="radiobutton"><strong>1 Marks</strong></label>
+      </p>
+      </td>
+        <td valign="top" name="text2">
+          <p id="crit2-3">Postings present a specific viewpoint.<br /></p>
+	    <p>
+          <input name="criteria2" type="radio" value="2" id="criteria23" onclick="autoCompute2()" />
+          <label for="radiobutton"><strong>2 Marks</strong></label><br />        
+          <input name="criteria2" type="radio" value="3" id="criteria23" onclick="autoCompute2()" />
+          <label for="radiobutton"><strong>3 Marks</strong></label><br />
+          <input name="criteria2" type="radio" value="4" id="criteria23" onclick="autoCompute2()" />
+          <label for="radiobutton"><strong>4 Marks</strong></label>
+      </p>
+      </td>
+        <td valign="top" name="text2">
+          <p id="crit2-4">Postings present a specific viewpoint that is substantiated.</p>
+	  <p>
+        <input name="criteria2" type="radio" value="5" id="criteria24" onclick="autoCompute2()" />
+        <label for="radiobutton"><strong>5 Marks</strong></label><br />        
+		<input name="criteria2" type="radio" value="6" id="criteria24" onclick="autoCompute2()" />
+        <label for="radiobutton"><strong>6 Marks</strong></label><br />
+        <input name="criteria2" type="radio" value="7" id="criteria24" onclick="autoCompute2()" />
+        <label for="radiobutton"><strong>7 Marks</strong></label><br />
+        <input name="criteria2" type="radio" value="8" id="criteria24" onclick="autoCompute2()" />
+        <label for="radiobutton"><strong>8 Marks</strong></label><br />        
+		<input name="criteria2" type="radio" value="9" id="criteria24" onclick="autoCompute2()" />
+        <label for="radiobutton"><strong>9 Marks</strong></label></p></td>
+          <td valign="top" name="text2">
+            <p id="crit2-5">Postings present a focused and cohesive viewpoint.</p>
+      <p>
+        <input name="criteria2" type="radio" value="10" id="criteria25" onclick="autoCompute2()"/>
+        <label for="radiobutton"><strong>10 Marks</strong></label><br />
+        <input name="criteria2" type="radio" value="10" id="criteria25" onclick="autoCompute2()"/>
+        <label for="radiobutton"><strong>11 Marks</strong></label><br />	
+	  <input name="criteria2" type="radio" value="12" id="criteria25" onclick="autoCompute2()"/>
+        <label for="radiobutton"><strong>12 Marks</strong></label></p>
+          </td>
+  </tr>
+  <tr>
+  
+    <td valign="top"><p>Postings are do not stimulate dialogue and commentary and do not connect with the audience. <br />
+      <p>
+        <input name="criteria3" type="radio" value="0" id="criteria31" onclick="autoCompute3()"/>
+        <label for="radiobutton"><strong>0 Marks</strong></label></p></td>
+    <td valign="top"><p>Postings and reflect minimal effort to connect with the audience.</p>
+	<p>
+        <input name="criteria3" type="radio" value="1" id="criteria32" onclick="autoCompute3()" />
+        <label for="radiobutton"><strong>1 Marks</strong></label><br />        
+		<input name="criteria3" type="radio" value="2" id="criteria32" onclick="autoCompute3()" />
+        <label for="radiobutton"><strong>2 Marks</strong></label><br />
+        <input name="criteria3" type="radio" value="3" id="criteria32" onclick="autoCompute3()" />
+        <label for="radiobutton"><strong>3 Marks</strong></label></p></td>
+    <td valign="top"><p>Postings are generally well written with some attempts made to stimulate dialogue and commentary.<br />
+      <p>
+        <input name="criteria3" type="radio" value="4" id="criteria33" onclick="autoCompute3()"/>
+        <label for="radiobutton"><strong>4 Marks</strong></label><br />
+        <input name="criteria3" type="radio" value="5" id="criteria33" onclick="autoCompute3()"/>
+        <label for="radiobutton"><strong>5 Marks</strong></label><br />	
+	  <input name="criteria3" type="radio" value="6" id="criteria33" onclick="autoCompute3()"/>
+        <label for="radiobutton"><strong>6 Marks</strong></label><br />
+        <input name="criteria3" type="radio" value="7" id="criteria33" onclick="autoCompute3()"/>
+        <label for="radiobutton"><strong>7 Marks</strong></label><br />
+        <input name="criteria3" type="radio" value="8" id="criteria33" onclick="autoCompute3()"/>
+        <label for="radiobutton"><strong>8 Marks</strong></label>
+      </p>
+    </td>
+    <td valign="top">
+      <p>Postings are creatively and fluently written to stimulate dialogue and commentary.<br /></p>
+      <p>
+ 		<input name="criteria3" type="radio" value="9" id="criteria34" onclick="autoCompute3()"/>
+        <label for="radiobutton"><strong>9 Marks</strong></label><br />
+		<input name="criteria3" type="radio" value="10" id="criteria34" onclick="autoCompute3()"/>
+        <label for="radiobutton"><strong>10 Marks</strong></label><br />		
+		<input name="criteria3" type="radio" value="11" id="criteria34" onclick="autoCompute3()"/>
+        <label for="radiobutton"><strong>11 Marks</strong></label></p></td>
+     <td valign="top"></td>
+  </tr>
+  <tr>
+    <td rowspan="1" valign="top"><strong>Interactivity</strong></td>
+    
+    <td valign="top"
+        ><p>No comments on other students' blogs<br />
+      </p>
+      <p>
+        <input name="criteria4" type="radio" value="0" id="criteria410" onclick="autoCompute4()"/>
+        <label for="radiobutton"><strong>0 Marks</strong></label></p>
+    </td>
+    <td valign="top"><p>Less than 3 names provided and no comments included. <br /></p>
+	<p>
+        <input name="criteria4" type="radio" value="1" id="criteria421" onclick="autoCompute4()" />
+      <label for="radiobutton"><strong>1 Marks</strong></label><br />        </p>
+    </td>
+    <td valign="top"><p>Less than 3 names provided and/or limited comments made</p>
+    <p>
+		<input name="criteria4" type="radio" value="2" id="criteria422" onclick="autoCompute4()" />
+        <label for="radiobutton"><strong>2 Marks</strong></label><br />
+        <input name="criteria4" type="radio" value="3" id="criteria423" onclick="autoCompute4()" />
+        <label for="radiobutton"><strong>3 Marks</strong></label> <br/>
+       <input name="criteria4" type="radio" value="4" id="criteria424" onclick="autoCompute4()" />
+        <label for="radiobutton"><strong>4 Marks</strong></label>
+      </p>
+    </td>
+    <td valign="top"><p>3 Names provided and comments are relevant and comprehensive <br /></p>
+      <p>
+        <input name="criteria4" type="radio" value="5" id="criteria435" onclick="autoCompute4()"/>
+        <label for="radiobutton"><strong>5 Marks</strong></label><br />
+        <input name="criteria4" type="radio" value="6" id="criteria436" onclick="autoCompute4()"/>
+        <label for="radiobutton"><strong>6 Marks</strong></label><br />	
+	  <input name="criteria4" type="radio" value="7" id="criteria437" onclick="autoCompute4()"/>
+        <label for="radiobutton"><strong>7 Marks</strong></label><br />
+        <input name="criteria4" type="radio" value="8" id="criteria438" onclick="autoCompute4()"/>
+        <label for="radiobutton"><strong>8Marks</strong></label><br />
+        <input name="criteria4" type="radio" value="9" id="criteria439" onclick="autoCompute4()"/>
+        <label for="radiobutton"><strong>9 Marks</strong></label></p>
+   </td>
+    <td valign="top"><p>More than 3 names provided, comments are relevant, comprehensive and shows insight adds value to original blog.<br />
+      <p>
+ 		<input name="criteria4" type="radio" value="10" id="criteria4410" onclick="autoCompute4()"/>
+        <label for="radiobutton"><strong>10 Marks</strong></label><br />
+		<input name="criteria4" type="radio" value="11" id="criteria4411" onclick="autoCompute4()"/>
+        <label for="radiobutton"><strong>11 Marks</strong></label><br />		
+		<input name="criteria4" type="radio" value="12" id="criteria4412" onclick="autoCompute4()"/>
+        <label for="radiobutton"><strong>12 Marks</strong></label></p></td>
+ 
+  </tr>
+  <tr>
+    <td valign="top"><p class="ch"><strong>Voice</strong></p></td>
+    <td valign="top"><p>Postings do not reflect the author&rsquo;s personality and word choice does not bring the topic to life.</p>
+      <p>
+        <input name="criteria5" type="radio" value="0" id="criteria51" onclick="autoCompute5()"/>
+        <label for="radiobutton"><strong>0 Marks</strong></label></p>
+    </td>
+    <td valign="top">
+      <p>Postings reflect almost no personality and little attempt is made to use effective word choices to bring the topic to life.</p>
+	<p>
+        <input name="criteria5" type="radio" value="1" id="criteria52" onclick="autoCompute5()" />
+        <label for="radiobutton"><strong>1 Marks</strong></label><br />        
+		<input name="criteria5" type="radio" value="2" id="criteria52" onclick="autoCompute5()" />
+        <label for="radiobutton"><strong>2 Marks</strong></label><br />
+        <input name="criteria5" type="radio" value="3" id="criteria52" onclick="autoCompute5()" />
+        <label for="radiobutton"><strong>3 Marks</strong></label></p>
+    
+    </td>
+    <td valign="top">
+      <p>Postings reflect a bit of the author's personality through word choices that attempt to bring the topic to life.</p>
+	<p>
+        <input name="criteria5" type="radio" value="4" id="criteria53" onclick="autoCompute5()" />
+        <label for="radiobutton"><strong>4 Marks</strong></label><br />        
+		<input name="criteria5" type="radio" value="5" id="criteria53" onclick="autoCompute5()" />
+        <label for="radiobutton"><strong>5 Marks</strong></label><br />
+        <input name="criteria5" type="radio" value="6" id="criteria53" onclick="autoCompute5()" />
+        <label for="radiobutton"><strong>6 Marks</strong></label><br />
+        <input name="criteria5" type="radio" value="7" id="criteria53" onclick="autoCompute5()" />
+        <label for="radiobutton"><strong>7 Marks</strong></label><br />        
+		<input name="criteria5" type="radio" value="8" id="criteria53" onclick="autoCompute5()" />
+        <label for="radiobutton"><strong>8 Marks</strong></label></p>
+  </td>
+    <td valign="top"><p>Postings reflect the author&rsquo;s unique personality through expressive and carefully selected word choices that bring the topic to life.<br />
+      <p>
+        <input name="criteria5" type="radio" value="9" id="criteria54" onclick="autoCompute5()"/>
+        <label for="radiobutton"><strong>9 Marks</strong></label><br />
+        <input name="criteria5" type="radio" value="10" id="criteria54" onclick="autoCompute5()"/>
+        <label for="radiobutton"><strong>10 Marks</strong></label><br />	
+	    <input name="criteria5" type="radio" value="11" id="criteria54" onclick="autoCompute5()"/>
+        <label for="radiobutton"><strong>11 Marks</strong></label></p></td>
+    <td valign="top"><p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td rowspan="2" valign="top">
+      <p><strong>Timeliness and Tags</strong></p></td>
+    <td valign="top">
+      <p>Does not update blog within the required time frame.<br /></p>
+      <p>
+        <input name="criteria6" type="radio" value="0" id="criteria61" onclick="autoCompute6()"/>
+        <label for="radiobutton"><strong>0 Marks</strong></label></p>
+    </td>
+    <td valign="top"><p>Updates blog when reminded.<br />
+	<p>
+        <input name="criteria6" type="radio" value="1" id="criteria62" onclick="autoCompute6()" />
+        <label for="radiobutton"><strong>1 Marks</strong></label><br />        
+		<input name="criteria6" type="radio" value="2" id="criteria62" onclick="autoCompute6()" />
+        <label for="radiobutton"><strong>2 Marks</strong></label><br />
+        <input name="criteria6" type="radio" value="3" id="criteria62" onclick="autoCompute6()" />
+        <label for="radiobutton"><strong>3 Marks</strong></label></p>
+    </td>
+    <td valign="top"><p>Updates blog when required.</p>
+	<p>
+        <input name="criteria6" type="radio" value="4" id="criteria63" onclick="autoCompute6()" />
+        <label for="radiobutton"><strong>4 Marks</strong></label><br />        
+		<input name="criteria6" type="radio" value="5" id="criteria63" onclick="autoCompute6()" />
+        <label for="radiobutton"><strong>5 Marks</strong></label><br />
+        <input name="criteria6" type="radio" value="6" id="criteria63" onclick="autoCompute6()" />
+        <label for="radiobutton"><strong>6 Marks</strong></label><br />
+        <input name="criteria6" type="radio" value="7" id="criteria63" onclick="autoCompute6()" />
+        <label for="radiobutton"><strong>7 Marks</strong></label><br />        
+		<input name="criteria6" type="radio" value="8" id="criteria63" onclick="autoCompute6()" />
+        <label for="radiobutton"><strong>8 Marks</strong></label>
+      </p>
+    </td>
+    <td valign="top"><p>Updates blog as often or more often than required. </p>
+      <p>
+        <input name="criteria6" type="radio" value="9" id="criteria64" onclick="autoCompute6()"/>
+        <label for="radiobutton"><strong>9 Marks</strong></label><br />
+        <input name="criteria6" type="radio" value="10" id="criteria64" onclick="autoCompute6()"/>
+        <label for="radiobutton"><strong>10 Marks</strong></label><br />	
+	    <input name="criteria6" type="radio" value="11" id="criteria64" onclick="autoCompute6()"/>
+        <label for="radiobutton"><strong>11 Marks</strong></label>
+      </p>
+    </td>
+    <td valign="top"><p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top"><p>Does not categorize and tag the topic appropriately.</p>
+      <p>
+        <input name="criteria7" type="radio" value="0" id="criteria71" onclick="autoCompute7()"/>
+        <label for="radiobutton"><strong>0 Marks</strong></label>
+      </p></td>
+    <td valign="top"><p>The post is not categorized and tagged appropriately.</p>
+	<p>
+        <input name="criteria7" type="radio" value="1" id="criteria72" onclick="autoCompute7()" />
+        <label for="radiobutton"><strong>1 Marks</strong></label><br />        
+		<input name="criteria7" type="radio" value="2" id="criteria72" onclick="autoCompute7()" />
+        <label for="radiobutton"><strong>2 Marks</strong></label><br />
+        <input name="criteria7" type="radio" value="3" id="criteria72" onclick="autoCompute7()" />
+        <label for="radiobutton"><strong>3 Marks</strong></label>
+      </p>
+    </td>
+    <td valign="top"><p>Post is categorized and tagged.</p>
+	<p>
+        <input name="criteria7" type="radio" value="4" id="criteria73" onclick="autoCompute7()" />
+        <label for="radiobutton"><strong>4 Marks</strong></label><br />        
+		<input name="criteria7" type="radio" value="5" id="criteria73" onclick="autoCompute7()" />
+        <label for="radiobutton"><strong>5 Marks</strong></label><br />
+        <input name="criteria7" type="radio" value="6" id="criteria73" onclick="autoCompute7()" />
+        <label for="radiobutton"><strong>6 Marks</strong></label><br />
+        <input name="criteria7" type="radio" value="7" id="criteria73" onclick="autoCompute7()" />
+        <label for="radiobutton"><strong>7 Marks</strong></label><br />        
+		<input name="criteria7" type="radio" value="8" id="criteria73" onclick="autoCompute7()" />
+        <label for="radiobutton"><strong>8 Marks</strong></label>
+      </p>
+    </td>
+    <td valign="top"><p>Post is categorized and topics are tagged appropriately</p>
+      <p>
+        <input name="criteria7" type="radio" value="9" id="criteria74" onclick="autoCompute7()"/>
+        <label for="radiobutton"><strong>9 Marks</strong></label><br />
+        <input name="criteria7" type="radio" value="10" id="criteria74" onclick="autoCompute7()"/>
+        <label for="radiobutton"><strong>10 Marks</strong></label><br />	
+	    <input name="criteria7" type="radio" value="11" id="criteria74" onclick="autoCompute7()"/>
+        <label for="radiobutton"><strong>11 Marks</strong></label>
+      </p>
+    </td>
+    <td valign="top"><p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top"><p><strong>Quality of Writing and Proofreading<br />      
+      </strong></p></td>
+    <td valign="top"><p>Written responses contain numerous grammatical, spelling or    punctuation errors.&nbsp; The style of writing does not facilitate effective communication.<br /></p>
+      <p>
+        <input name="criteria8" type="radio" value="0" id="criteria81" onclick="autoCompute8()"/>
+        <label for="radiobutton"><strong>0 Marks</strong></label>
+      </p>
+    </td>
+    <td valign="top"><p>Written responses include some grammatical, spelling or punctuation errors that distract the reader.&nbsp; </p>
+	<p>
+        <input name="criteria8" type="radio" value="1" id="criteria82" onclick="autoCompute8()" />
+        <label for="radiobutton"><strong>1 Marks</strong></label><br />        
+		<input name="criteria8" type="radio" value="2" id="criteria82" onclick="autoCompute8()" />
+        <label for="radiobutton"><strong>2 Marks</strong></label><br />
+        <input name="criteria8" type="radio" value="3" id="criteria82" onclick="autoCompute8()" />
+        <label for="radiobutton"><strong>3 Marks</strong></label>
+      </p>
+    </td>
+    <td valign="top">
+      <p>Written responses are largely free of grammatical, spelling or punctuation errors.&nbsp; The style of writing generally facilitates communication.&nbsp;</p>
+      <p>
+        <input name="criteria8" type="radio" value="4" id="criteria83" onclick="autoCompute8()"/>
+        <label for="radiobutton"><strong>4 Marks</strong></label><br />
+        <input name="criteria8" type="radio" value="5" id="criteria83" onclick="autoCompute8()"/>
+        <label for="radiobutton"><strong>5 Marks</strong></label><br />	
+	  <input name="criteria8" type="radio" value="6" id="criteria83" onclick="autoCompute8()"/>
+        <label for="radiobutton"><strong>6 Marks</strong></label><br />
+        <input name="criteria8" type="radio" value="7" id="criteria83" onclick="autoCompute8()"/>
+        <label for="radiobutton"><strong>7 Marks</strong></label><br />
+        <input name="criteria8" type="radio" value="8" id="criteria83" onclick="autoCompute8()"/>
+        <label for="radiobutton"><strong>8 Marks</strong></label>
+      </p>
+    </td>
+    <td valign="top"><p>Written responses are free of grammatical, spelling or    punctuation errors.&nbsp; The style of writing facilitates    communication.&nbsp;</p>
+      <p>
+ 		<input name="criteria8" type="radio" value="9" id="criteria84" onclick="autoCompute8()"/>
+        <label for="radiobutton"><strong>9 Marks</strong></label><br />
+		<input name="criteria8" type="radio" value="10" id="criteria84" onclick="autoCompute8()"/>
+        <label for="radiobutton"><strong>10 Marks</strong></label><br />		
+		<input name="criteria8" type="radio" value="11" id="criteria84" onclick="autoCompute8()"/>
+        <label for="radiobutton"><strong>11 Marks</strong></label>
+      </p>
+    </td>
+    <td valign="top"><p>&nbsp;</p></td>
+  </tr>
+   <tr>
+    <td valign="top"><p><strong>Exercise Answers Included</strong></p></td>
+     <td valign="top">
+       <p>No exercise answers included</p>
+      <p>
+        <input name="criteria9" type="radio" value="0" id="criteria91" onclick="autoCompute9()"/>
+        <label for="radiobutton"><strong>0 Marks</strong></label>
+       </p></td>
+     <td valign="top"><p>Incomplete exercise answers included.&nbsp; </p>
+	<p>
+        <input name="criteria9" type="radio" value="1" id="criteria92" onclick="autoCompute9()" />
+        <label for="radiobutton"><strong>1 Marks</strong></label><br />        
+		<input name="criteria9" type="radio" value="2" id="criteria93" onclick="autoCompute9()" />
+        <label for="radiobutton"><strong>2 Marks</strong></label><br />
+        <input name="criteria9" type="radio" value="3" id="criteria94" onclick="autoCompute9()" />
+        <label for="radiobutton"><strong>3 Marks</strong></label>
+       </p></td>
+    <td valign="top"><p>Complete exercise answers included.&nbsp;<br />
+      <p>
+        <input name="criteria9" type="radio" value="4" id="criteria95" onclick="autoCompute9()"/>
+        <label for="radiobutton"><strong>4 Marks</strong></label><br />
+        <input name="criteria9" type="radio" value="5" id="criteria96" onclick="autoCompute9()"/>
+        <label for="radiobutton"><strong>5 Marks</strong></label><br />	
+	  <input name="criteria9" type="radio" value="6" id="criteria97" onclick="autoCompute9()"/>
+        <label for="radiobutton"><strong>6 Marks</strong></label><br />
+        <input name="criteria9" type="radio" value="7" id="criteria98" onclick="autoCompute9()"/>
+        <label for="radiobutton"><strong>7 Marks</strong></label><br />
+        <input name="criteria9" type="radio" value="8" id="criteria99" onclick="autoCompute9()"/>
+        <label for="radiobutton"><strong>8 Marks</strong></label></p></td>
+     <td valign="top"><p>&nbsp;</p></td>
+     <td valign="top"><p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top"><p align="right"><strong>&nbsp;</strong></p></td>
+    <td colspan="5" valign="top"><p align="right"id="totalMarks"></p></td>
+  </tr>
+</table>
+</form>
+    </div>
+</div>
+
+
+</body>
+</html>
