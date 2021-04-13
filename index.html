@@ -6,118 +6,120 @@
 <!--
  Developed by Chrispin Kabuya
  Version 3 - 2021
+Version 3.1
+Added General comments
 -->
 <script>
 var criterias=[0,0,0,0,0,0,0,0];
-var criteria1Text=["No postings were made.",
-                    "Postings show no evidence of insight, understanding or reflective thought about the topic.",
-                    "Postings provide minimal insight, understanding and reflective thought about the topic.",
-					"Postings provide minimal insight, understanding and reflective thought about the topic.",
-					"Postings provide minimal insight, understanding and reflective thought about the topic.",
-					"Postings provide minimal insight, understanding and reflective thought about the topic.",
-					"Postings provide moderate insight, understanding and reflective thought about the topic.",
-					"Postings provide moderate insight, understanding and reflective thought about the topic.",
-					"Postings provide moderate insight, understanding and reflective thought about the topic.",
-					"Postings provide moderate insight, understanding and reflective thought about the topic.",
-                    "Postings provide moderate insight, understanding and reflective thought about the topic.",
-					"Postings provide comprehensive insight, understanding, and reflective thought about the topic.",
-					"Postings provide comprehensive insight, understanding, and reflective thought about the topic. ",
-					"Postings provide comprehensive insight, understanding, and reflective thought about the topic."
+var criteria1Text=[" No postings were made.",
+                    " Postings show no evidence of insight, understanding or reflective thought about the topic. ",
+                    " Postings provide minimal insight, understanding and reflective thought about the topic. ",
+					" Postings provide minimal insight, understanding and reflective thought about the topic. ",
+					" Postings provide minimal insight, understanding and reflective thought about the topic. ",
+					" Postings provide moderate insight, understanding and reflective thought about the topic. ",
+					" Postings provide moderate insight, understanding and reflective thought about the topic. ",
+					" Postings provide moderate insight, understanding and reflective thought about the topic. ",
+					" Postings provide moderate insight, understanding and reflective thought about the topic. ",
+                    " Postings provide moderate insight, understanding and reflective thought about the topic. ",
+					" Postings provide comprehensive insight, understanding, and reflective thought about the topic. ",
+					" Postings provide comprehensive insight, understanding, and reflective thought about the topic. ",
+					" Postings provide comprehensive insight, understanding, and reflective thought about the topic. "
 					];
-var criteria2Text=["Posting is not related to requirements at all.",
-                   "Postings present no specific viewpoint.",
-                   "Postings present a specific viewpoint.",
-				   "Postings present a specific viewpoint.",
-				   "Postings present a specific viewpoint.",
-                   "Postings present a specific viewpoint that is substantiated.",
-				   "Postings present a specific viewpoint that is substantiated.",
-				   "Postings present a specific viewpoint that is substantiated.",
-				   "Postings present a specific viewpoint that is substantiated.",
-				   "Postings present a specific viewpoint that is substantiated.",
-                   "Postings present a focused and cohesive viewpoint.",
-				   "Postings present a focused and cohesive viewpoint.",
-				   "Postings present a focused and cohesive viewpoint."];
-var criteria3Text=["Postings do not stimulate dialogue and commentary and do not connect with the audience.",
-                   "Postings and reflect minimal effort to connect with the audience",
-				   "Postings and reflect minimal effort to connect with the audience",
-				   "Postings and reflect minimal effort to connect with the audience",
-                   "Postings are generally well written with some attempts made to stimulate dialogue and commentary.",
-				   "Postings are generally well written with some attempts made to stimulate dialogue and commentary.",
-				   "Postings are generally well written with some attempts made to stimulate dialogue and commentary.",
-				   "Postings are generally well written with some attempts made to stimulate dialogue and commentary.",
-				   "Postings are generally well written with some attempts made to stimulate dialogue and commentary.",
-                   "Postings are creatively and fluently written to stimulate dialogue and commentary.",
-				   "Postings are creatively and fluently written to stimulate dialogue and commentary.",
-				   "Postings are creatively and fluently written to stimulate dialogue and commentary."];
-var criteria4Text=["No comments on other students' blogs",
-                   "Less than 3 names provided and no comments included.",
-				   "Less than 3 names provided and/or limited comments made.",
-				   "Less than 3 names provided and/or limited comments made.",
-                   "Less than 3 names provided and/or limited comments made.",
-				   "3 Names provided and comments are relevant and comprehensive.",
-				   "3 Names provided and comments are relevant and comprehensive.",
-				   "3 Names provided and comments are relevant and comprehensive.",
-				   "3 Names provided and comments are relevant and comprehensive.",
-                   "More than 3 names provided, comments are relevant, comprehensive and shows insight adds value to original blog.",
-				   "More than 3 names provided, comments are relevant, comprehensive and shows insight adds value to original blog.",
-				   "More than 3 names provided, comments are relevant, comprehensive and shows insight adds value to original blog."];
-var criteria5Text=["Postings do not reflect the author's personality and word choice does not bring the topic to life.",
-                   "Postings reflect almost no personality and little attempt is made to use effective word choices to bring the topic to life.",
-				   "Postings reflect almost no personality and little attempt is made to use effective word choices to bring the topic to life.",
-				   "Postings reflect almost no personality and little attempt is made to use effective word choices to bring the topic to life.",
-                   "Postings reflect a bit of the author's personality through word choices that attempt to bring the topic to life.",
-				   "Postings reflect a bit of the author's personality through word choices that attempt to bring the topic to life.",
-				   "Postings reflect a bit of the author's personality through word choices that attempt to bring the topic to life.",
-				   "Postings reflect a bit of the author's personality through word choices that attempt to bring the topic to life.",
-				   "Postings reflect a bit of the author's personality through word choices that attempt to bring the topic to life.",
-                   "Postings reflect the author's unique personality through expressive and carefully selected word choices that bring the topic to life.",
-				   "Postings reflect the author's unique personality through expressive and carefully selected word choices that bring the topic to life.",
-				   "Postings reflect the author's unique personality through expressive and carefully selected word choices that bring the topic to life."];
-var criteria6Text=["Does not update blog within the required time frame.",
-                   "Updates blog when reminded.",
-				   "Updates blog when reminded.",
-				   "Updates blog when reminded.",
-                   "Updates blog when required.",
-				   "Updates blog when required.",
-				   "Updates blog when required.",
-				   "Updates blog when required.",
-				   "Updates blog when required.",
-                   "Updates blog as often or more often than required.",
-				   "Updates blog as often or more often than required.",
-				   "Updates blog as often or more often than required."];
-var criteria7Text=["Does not categorize and tag the topic appropriately.",
-                   "The post is not categorized and tagged appropriately.",
-				   "The post is not categorized and tagged appropriately.",
-				   "The post is not categorized and tagged appropriately.",
-                   "Post is categorized and tagged.",
-				   "Post is categorized and tagged.",
-				   "Post is categorized and tagged.",
-				   "Post is categorized and tagged.",
-				   "Post is categorized and tagged.",
-                   "Post is categorized and topics are tagged appropriately.",
-				   "Post is categorized and topics are tagged appropriately.",
-				   "Post is categorized and topics are tagged appropriately."];
-var criteria8Text=["Written responses contain numerous grammatical, spelling or punctuation errors.  The style of writing does not facilitate effective communication.",
-                   "Written responses include some grammatical, spelling or punctuation errors that distract the reader.",
-				   "Written responses include some grammatical, spelling or punctuation errors that distract the reader.",
-				   "Written responses include some grammatical, spelling or punctuation errors that distract the reader.",
-                   "Written responses are largely free of grammatical, spelling or punctuation errors.  The style of writing generally facilitates communication.",
-				   "Written responses are largely free of grammatical, spelling or punctuation errors.  The style of writing generally facilitates communication.",
-				   "Written responses are largely free of grammatical, spelling or punctuation errors.  The style of writing generally facilitates communication.",
-				   "Written responses are largely free of grammatical, spelling or punctuation errors.  The style of writing generally facilitates communication.",
-				   "Written responses are largely free of grammatical, spelling or punctuation errors.  The style of writing generally facilitates communication.",
-                   "Written responses are free of grammatical, spelling or punctuation errors.  The style of writing facilitates communication.",
-				   "Written responses are free of grammatical, spelling or punctuation errors.  The style of writing facilitates communication.",
-				   "Written responses are free of grammatical, spelling or punctuation errors.  The style of writing facilitates communication."];
-var criteria9Text=["No exercise answers included. ",
-                   "Incomplete exercise answers included. ",
-				   "Incomplete exercise answers included. ",
-				   "Incomplete exercise answers included. ",
-                   "Complete exercise answers included. ",
-				   "Complete exercise answers included.  ",
-				   "Complete exercise answers included. ",
-				   "Complete exercise answers included. ",
-				   "Complete exercise answers included. "];
+var criteria2Text=[" Posting is not related to requirements at all. ",
+                   " Postings present no specific viewpoint. ",
+                   " Postings present a specific viewpoint. ",
+				   " Postings present a specific viewpoint. ",
+				   " Postings present a specific viewpoint. ",
+                   " Postings present a specific viewpoint that is substantiated. ",
+				   " Postings present a specific viewpoint that is substantiated. ",
+				   " Postings present a specific viewpoint that is substantiated. ",
+				   " Postings present a specific viewpoint that is substantiated. ",
+				   " Postings present a specific viewpoint that is substantiated. ",
+                   " Postings present a focused and cohesive viewpoint. ",
+				   " Postings present a focused and cohesive viewpoint. ",
+				   " Postings present a focused and cohesive viewpoint. "];
+var criteria3Text=[" Postings do not stimulate dialogue and commentary and do not connect with the audience. ",
+                   " Postings and reflect minimal effort to connect with the audience. ",
+				   " Postings and reflect minimal effort to connect with the audience. ",
+				   " Postings and reflect minimal effort to connect with the audience. ",
+                   " Postings are generally well written with some attempts made to stimulate dialogue and commentary. ",
+				   " Postings are generally well written with some attempts made to stimulate dialogue and commentary. ",
+				   " Postings are generally well written with some attempts made to stimulate dialogue and commentary. ",
+				   " Postings are generally well written with some attempts made to stimulate dialogue and commentary. ",
+				   " Postings are generally well written with some attempts made to stimulate dialogue and commentary. ",
+                   " Postings are creatively and fluently written to stimulate dialogue and commentary. ",
+				   " Postings are creatively and fluently written to stimulate dialogue and commentary. ",
+				   " Postings are creatively and fluently written to stimulate dialogue and commentary. "];
+var criteria4Text=[" No comments on other students' blogs. ",
+                   " Less than 3 names provided and no comments included. ",
+				   " Less than 3 names provided and/or limited comments made. ",
+				   " Less than 3 names provided and/or limited comments made. ",
+                   " Less than 3 names provided and/or limited comments made. ",
+				   " 3 Names provided and comments are relevant and comprehensive. ",
+				   " 3 Names provided and comments are relevant and comprehensive. ",
+				   " 3 Names provided and comments are relevant and comprehensive. ",
+				   " 3 Names provided and comments are relevant and comprehensive. ",
+                   " 3 Names provided and comments are relevant and comprehensive. ",
+                   " More than 3 names provided, comments are relevant, comprehensive and shows insight adds value to original blog. ",
+				   " More than 3 names provided, comments are relevant, comprehensive and shows insight adds value to original blog. ",
+				   " More than 3 names provided, comments are relevant, comprehensive and shows insight adds value to original blog. "];
+var criteria5Text=[" Postings do not reflect the author's personality and word choice does not bring the topic to life. ",
+                   " Postings reflect almost no personality and little attempt is made to use effective word choices to bring the topic to life. ",
+				   " Postings reflect almost no personality and little attempt is made to use effective word choices to bring the topic to life. ",
+				   " Postings reflect almost no personality and little attempt is made to use effective word choices to bring the topic to life. ",
+                   " Postings reflect a bit of the author's personality through word choices that attempt to bring the topic to life. ",
+				   " Postings reflect a bit of the author's personality through word choices that attempt to bring the topic to life. ",
+				   " Postings reflect a bit of the author's personality through word choices that attempt to bring the topic to life. ",
+				   " Postings reflect a bit of the author's personality through word choices that attempt to bring the topic to life. ",
+				   " Postings reflect a bit of the author's personality through word choices that attempt to bring the topic to life. ",
+                   " Postings reflect the author's unique personality through expressive and carefully selected word choices that bring the topic to life. ",
+				   " Postings reflect the author's unique personality through expressive and carefully selected word choices that bring the topic to life. ",
+				   " Postings reflect the author's unique personality through expressive and carefully selected word choices that bring the topic to life. "];
+var criteria6Text=[" Does not update blog within the required time frame. ",
+                   " Updates blog when reminded. ",
+				   " Updates blog when reminded. ",
+				   " Updates blog when reminded. ",
+                   " Updates blog when required. ",
+				   " Updates blog when required. ",
+				   " Updates blog when required. ",
+				   " Updates blog when required. ",
+				   " Updates blog when required. ",
+                   " Updates blog as often or more often than required. ",
+				   " Updates blog as often or more often than required. ",
+				   " Updates blog as often or more often than required. "];
+var criteria7Text=[" Does not categorize and tag the topic appropriately. ",
+                   " The post is not categorized and tagged appropriately. ",
+				   " The post is not categorized and tagged appropriately. ",
+				   " The post is not categorized and tagged appropriately. ",
+                   " Post is categorized and tagged. ",
+				   " Post is categorized and tagged. ",
+				   " Post is categorized and tagged. ",
+				   " Post is categorized and tagged. ",
+				   " Post is categorized and tagged. ",
+                   " Post is categorized and topics are tagged appropriately. ",
+				   " Post is categorized and topics are tagged appropriately. ",
+				   " Post is categorized and topics are tagged appropriately. "];
+var criteria8Text=[" Written responses contain numerous grammatical, spelling or punctuation errors.  The style of writing does not facilitate effective communication. ",
+                   " Written responses include some grammatical, spelling or punctuation errors that distract the reader. ",
+				   " Written responses include some grammatical, spelling or punctuation errors that distract the reader. ",
+				   " Written responses include some grammatical, spelling or punctuation errors that distract the reader. ",
+                   " Written responses are largely free of grammatical, spelling or punctuation errors.  The style of writing generally facilitates communication. ",
+				   " Written responses are largely free of grammatical, spelling or punctuation errors.  The style of writing generally facilitates communication. ",
+				   " Written responses are largely free of grammatical, spelling or punctuation errors.  The style of writing generally facilitates communication. ",
+				   " Written responses are largely free of grammatical, spelling or punctuation errors.  The style of writing generally facilitates communication. ",
+				   " Written responses are largely free of grammatical, spelling or punctuation errors.  The style of writing generally facilitates communication. ",
+                   " Written responses are free of grammatical, spelling or punctuation errors.  The style of writing facilitates communication. ",
+				   " Written responses are free of grammatical, spelling or punctuation errors.  The style of writing facilitates communication. ",
+				   " Written responses are free of grammatical, spelling or punctuation errors.  The style of writing facilitates communication. "];
+var criteria9Text=[" No exercise answers included. ",
+                   " Incomplete exercise answers included. ",
+				   " Incomplete exercise answers included. ",
+				   " Incomplete exercise answers included. ",
+                   " Complete exercise answers included. ",
+				   " Complete exercise answers included.  ",
+				   " Complete exercise answers included. ",
+				   " Complete exercise answers included. ",
+				   " Complete exercise answers included. "];
 
 var selectedRubric=["","","","","","","","",""]; // array to hold selected criteria
 var checkSelection=[false,false,false,false,false,false,false,false,false];
@@ -322,8 +324,38 @@ function compute(){
   for(var j=0;j<selectedRubric.length;++j){
     text+=selectedRubric[j]+"<br/>";
   }
+  //add comments
+  
   document.getElementById("copied").innerHTML=text+"<br/><strong> Total: "+sum+"/100</strong>";
+ 
+  var comments =document.forms[0].generalComments.value;
+  if(comments != null || comments !=="" || comments.length !==0){
+    document.getElementById("copied").innerHTML=text+"<br/><strong> General Comments: </strong>"+comments+"<br/><br/><strong> Total: "+sum+"/100</strong>";
+  }
+   document.getElementById("totalMarks").innerHTML="<strong> Total: "+sum+"/100</strong>";
+  
+}
+  //check comments
+function AddComments(){
+  compute();
+ /* var sum=0;
+  for(var i=0; i<criterias.length; ++i){
+    sum+=criterias[i];
+  }
+  var text="";
+  for(var j=0;j<selectedRubric.length;++j){
+    text+=selectedRubric[j]+"<br/>";
+  }
+  //add comments
+  
+  document.getElementById("copied").innerHTML=text+"<br/><strong> Total: "+sum+"/100</strong>";
+  
+  var comments =document.forms[0].generalComments.value;
+  if(comments != null || comments !=="" || comments.length !==0){
+    document.getElementById("copied").innerHTML=text+"<br/><strong> General Comments: </strong>"+comments++"<br/><br/><strong> Total: "+sum+"/100</strong>";
+  }
   document.getElementById("totalMarks").innerHTML="<strong> Total: "+sum+"/100</strong>";
+  */
 }
 /*validate all radio buttons have been selected*/
 function checkAllSelected(){
@@ -568,7 +600,7 @@ striping:
       <p>
         <input name="criteria2" type="radio" value="10" id="criteria25" onclick="autoCompute2()"/>
         <label for="radiobutton"><strong>10 Marks</strong></label><br />
-        <input name="criteria2" type="radio" value="10" id="criteria25" onclick="autoCompute2()"/>
+        <input name="criteria2" type="radio" value="11" id="criteria25" onclick="autoCompute2()"/>
         <label for="radiobutton"><strong>11 Marks</strong></label><br />	
 	  <input name="criteria2" type="radio" value="12" id="criteria25" onclick="autoCompute2()"/>
         <label for="radiobutton"><strong>12 Marks</strong></label></p>
@@ -866,6 +898,12 @@ striping:
         <label for="radiobutton"><strong>8 Marks</strong></label></p></td>
      <td valign="top"><p>&nbsp;</p></td>
      <td valign="top"><p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top"><p align="right"><strong>General Comments:</strong></p></td>
+    <td colspan="5" valign="top">
+      <textarea name="generalComments" id="generalComments" rows="4" cols="100" placeholder="General Comments" oninput="AddComments()"></textarea>
+    </td>
   </tr>
   <tr>
     <td valign="top"><p align="right"><strong>&nbsp;</strong></p></td>
